@@ -18,7 +18,8 @@ describe ApplicationController do
     end
 
     it 'returns an array of JSON objects for all bakeries in the database' do
-      get '/games'
+      get '/bakeries'
+
       expect(last_response.body).to include_json([
         { name: "Northside" },
         { name: "Southside" }
@@ -28,13 +29,13 @@ describe ApplicationController do
 
   describe 'GET /bakeries/:id' do
     it 'sets the Content-Type header in the response to application/json' do
-      get "/bakeries/#{bakeries1.id}"
+      get "/bakeries/#{bakery1.id}"
 
       expect(last_response.headers['Content-Type']).to eq('application/json')
     end
 
     it 'returns a single bakery as JSON with its baked goods nested' do
-      get "/bakeries/#{bakeries1.id}"
+      get "/bakeries/#{bakery1.id}"
 
       expect(last_response.body).to include_json({ 
         name: "Northside",
@@ -47,8 +48,8 @@ describe ApplicationController do
   end
 
   describe 'GET /baked_goods/by_price' do
-    it 'returns an array of baked goods as JSON, sorted by price in descending order  (HINT: how can you sort the baked goods in a particular order?)' do
-      get "/baked_goods/most_expensive"
+    it "returns an array of baked goods as JSON, sorted by price in descending order" do
+      get "/baked_goods/by_price"
 
       expect(last_response.body).to include_json([
         { name: "Croissant", price: 5 },
