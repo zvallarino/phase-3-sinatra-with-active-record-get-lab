@@ -108,13 +108,15 @@ following:
 
 - `GET /bakeries`: returns an array of JSON objects for all bakeries in the database.
 - `GET /bakeries/:id`: returns a single bakery as JSON with its baked goods
-  nested. Use the `id` from the URL to look up the correct bakery.
+  nested in an array. Use the `id` from the URL to look up the correct bakery.
+  (**HINT**: you'll need to pass in some custom options to the
+  [`#to_json`][as_json] method.)
 - `GET /baked_goods/by_price`: returns an array of baked goods as JSON, sorted
-  by price in descending order. (**HINT**: how can you sort the baked goods in a
-  particular order?)
+  by price in descending order. (**HINT**: how can you use Active Record to sort
+  the baked goods in a particular order?)
 - `GET /baked_goods/most_expensive`: returns the single most expensive baked
-  good as JSON. (**HINT**: how can you sort the baked goods in a particular
-  order?)
+  good as JSON. (**HINT**: how can you use Active Record to sort the baked goods
+  in a particular order?)
 
 ## Resources
 
