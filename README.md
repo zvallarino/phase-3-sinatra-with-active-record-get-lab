@@ -26,7 +26,7 @@ $ bundle exec rake db:migrate db:seed
 You can run the app and explore your API in the browser by using the custom Rake
 task:
 
-```sh
+```console
 $ bundle exec rake server
 ```
 
